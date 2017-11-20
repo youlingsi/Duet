@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5f09047ad619d429be49ad64bea813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notes:
+  Piano:
   - {fileID: 8300000, guid: c2714a6633a0c5f43b7793fa22b101a2, type: 3}
   - {fileID: 8300000, guid: cdea9110b22f61b4c97b52019a3fef1a, type: 3}
   - {fileID: 8300000, guid: 4859559019dd9ad4cabaf76cc2376df9, type: 3}
@@ -351,6 +351,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df5bf0bd61654aa4984f9cdca5da92bb, type: 3}
   - {fileID: 8300000, guid: 57b634d7020cabf449c702d32341c369, type: 3}
   - {fileID: 8300000, guid: 7b696cbfa58da7c44b10dc1321f1a33d, type: 3}
+  String:
+  - {fileID: 8300000, guid: 5ab8a754165a8d34dbf9344d6244293a, type: 3}
+  - {fileID: 8300000, guid: a19e1b6432a6a264abfa8105516ebc56, type: 3}
+  - {fileID: 8300000, guid: c59b3ca3157f8be48b8f1940a4fa6de7, type: 3}
+  - {fileID: 8300000, guid: 93baedf422ca9ec448f49df2cab35d8e, type: 3}
+  - {fileID: 8300000, guid: f8710954e240e834bb8b9dae091309ae, type: 3}
+  - {fileID: 8300000, guid: 97f95dc077d54304a840a1ef455120b2, type: 3}
+  - {fileID: 8300000, guid: 5c8897b800bbed44694139f3b2216836, type: 3}
+  - {fileID: 8300000, guid: 6583c7ff5f554c74c92ba39c9d74c296, type: 3}
   com: {fileID: 1615675907}
 --- !u!82 &2049740106
 AudioSource:

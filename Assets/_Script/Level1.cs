@@ -5,7 +5,8 @@ using UnityEngine;
 public class Level1 : MonoBehaviour {
 
 
-    public AudioClip[] notes;
+    public AudioClip[] piano;
+    public AudioClip[] String;
     public AudioSource com;
     private float t;
     private int indx;
@@ -52,7 +53,7 @@ public class Level1 : MonoBehaviour {
         RandNoteHis[0] = RandNoteHis[1];
         RandNoteHis[1] = RandNoteHis[2];
 		RandNoteHis[2] = indx;
-        com.clip = notes[indx];
+        com.clip = piano[indx];
         com.Play();
     }
 
@@ -62,7 +63,7 @@ public class Level1 : MonoBehaviour {
 		if((playerPlay - comPlay) < 0.5)
         {
             AudioSource Source = GetComponent<AudioSource>();
-            Source.clip = notes[i];
+            Source.clip = String[i];
             Source.Play();
         }
     }

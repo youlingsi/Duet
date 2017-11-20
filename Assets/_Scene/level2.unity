@@ -339,7 +339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049740103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b7c04cda93f4047936dd831354b2bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c6c6bb4d6131b5439ad60635ef9d570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   piano:
@@ -360,6 +360,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97f95dc077d54304a840a1ef455120b2, type: 3}
   - {fileID: 8300000, guid: 5c8897b800bbed44694139f3b2216836, type: 3}
   - {fileID: 8300000, guid: 6583c7ff5f554c74c92ba39c9d74c296, type: 3}
+  ding: {fileID: 8300000, guid: 9f3c5038b75eae84b88cee666efcc7d3, type: 3}
   com: {fileID: 1615675907}
 --- !u!82 &2049740106
 AudioSource:

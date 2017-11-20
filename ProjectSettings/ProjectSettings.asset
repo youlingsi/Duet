@@ -604,9 +604,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: a47aa917-1610-43ba-8993-93382f306010
-  projectName: Duet
-  organizationId: le-yang
+  cloudProjectId: 52a00ede-1e82-4d58-95ac-d4bbb376507e
+  projectName: Duet (1)
+  organizationId: ley1
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

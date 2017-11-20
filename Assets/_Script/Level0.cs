@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class Level0 : MonoBehaviour {
 
 
-    public AudioClip[] notes;
+    public AudioClip[] Piano;
+    public AudioClip[] String;
     public AudioSource com;
     private float t;
     private int indx;
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour {
         RandNoteHis[0] = RandNoteHis[1];
         RandNoteHis[1] = RandNoteHis[2];
 		RandNoteHis[2] = indx;
-        com.clip = notes[indx];
+        com.clip = Piano[indx];
         com.Play();
     }
 
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour {
         if(i == RandNoteHis[2])
         {
             AudioSource Source = GetComponent<AudioSource>();
-            Source.clip = notes[i];
+            Source.clip = String[i];
             Source.Play();
         }
     }
