@@ -16,6 +16,7 @@ public class Level3 : MonoBehaviour {
     public AudioClip[] voilin;
     public int barNum = 10;
     public AudioSource com;
+    public float tolerence = 0.5f;
 
     private int state = 0; //0= computer play. 1= playerplay
 //    private float initialTime;
@@ -42,7 +43,6 @@ public class Level3 : MonoBehaviour {
         }
         songPitch = PitchGenerator(songTime);
         unitTime = 60 / bpm * nNotes;
-        initialTime = Time.realtimeSinceStartup;
         StartCoroutine(Play());
     }
 	
@@ -51,7 +51,7 @@ public class Level3 : MonoBehaviour {
         if(state == 1 & Input.GetKeyDown("f"))
         {
             float hitStamp = Time.realtimeSinceStartup;
-            if(hitStamp - noteStamp < 0.5f)
+            if(hitStamp - noteStamp < tolerence)
             {
                 PlayerPlay(iPlayer, jPlayer);
             }
@@ -85,7 +85,7 @@ public class Level3 : MonoBehaviour {
 
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[songTime[progress][j]]);
             }
-            yield return new WaitForSecondsRealtime(60/bpm);
+            //yield return new WaitForSecondsRealtime(60/bpm);
 
             for (int j = 0; j < songTime[progress].Count; j++)
             {
@@ -105,6 +105,7 @@ public class Level3 : MonoBehaviour {
     void PlayerPlay(int i, int j)
     {
         AudioSource player = GetComponent<AudioSource>();
+        player.Stop();
         player.clip = voilin[songPitch[i][j]];
         player.Play();
     }
@@ -159,6 +160,7 @@ public class Level3 : MonoBehaviour {
 
     void ComPlay(int pitch, float volumn)
     {
+        com.Stop();
         com.clip = piano[pitch];
         com.volume = volumn;
         com.Play();
