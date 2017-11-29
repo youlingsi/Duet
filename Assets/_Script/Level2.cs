@@ -40,7 +40,6 @@ public class Level2 : MonoBehaviour {
             tCom += lenth[lenthIndex];
             MelodyPitch.Add(indx);
             MelodyTime.Add(tCom);
-
             if (tCom > span) {
                 state = 1;
                 tCom = 0;
