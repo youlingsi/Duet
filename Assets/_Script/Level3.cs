@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level3 : MonoBehaviour {
 
 
-    private float[] NOTES = new float[3] { 0.125f, 0.25f, 0.5f};
+    private float[] NOTES = new float[3] { 0.125f, 0.25f, 0.375, 0.5f, 1f};
     private string PATTERNPATH = "Assets/pattern.txt";
     private string PITCHPATH = "Assets/pitch.txt";
     public int nNotes = 4;
@@ -22,6 +22,7 @@ public class Level3 : MonoBehaviour {
 //    private float initialTime;
     private float unitTime = 0;
     private List<List<int>> songTime = new List<List<int>>();
+	private List<List<int>> sPitch = new List<List<int>> ();
     private int[][] songPitch;
     private int progress = 0;
 //    private bool keyhit = false;
