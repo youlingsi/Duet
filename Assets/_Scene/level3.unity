@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -301,128 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1978551589
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1978551591}
-  - component: {fileID: 1978551590}
-  - component: {fileID: 1978551592}
-  m_Layer: 0
-  m_Name: BGBeats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1978551590
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1978551589}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8a90f6e2639b2484c9b46481d622cb2b, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.49
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!4 &1978551591
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1978551589}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1978551592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1978551589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6394df44c5ba094c8a590b221522dd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: {fileID: 2049740105}
 --- !u!1 &2049740103
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,10 +309,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2049740104}
-  - component: {fileID: 2049740106}
   - component: {fileID: 2049740105}
+  - component: {fileID: 2049740106}
   m_Layer: 0
-  m_Name: Player
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,33 +339,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049740103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869a58a9bc177fb41bc2961d63e49068, type: 3}
+  m_Script: {fileID: 11500000, guid: 84396f833872d5249953e1e34eabe5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nNotes: 4
-  unitNote: 0.25
-  bpm: 60
-  piano:
-  - {fileID: 8300000, guid: c2714a6633a0c5f43b7793fa22b101a2, type: 3}
-  - {fileID: 8300000, guid: cdea9110b22f61b4c97b52019a3fef1a, type: 3}
-  - {fileID: 8300000, guid: 4859559019dd9ad4cabaf76cc2376df9, type: 3}
-  - {fileID: 8300000, guid: 6914258cc3525f046a6a14faa747d22c, type: 3}
-  - {fileID: 8300000, guid: 1807764d767ccae44a7bd836aed60cad, type: 3}
-  - {fileID: 8300000, guid: df5bf0bd61654aa4984f9cdca5da92bb, type: 3}
-  - {fileID: 8300000, guid: 57b634d7020cabf449c702d32341c369, type: 3}
-  - {fileID: 8300000, guid: 7b696cbfa58da7c44b10dc1321f1a33d, type: 3}
-  voilin:
-  - {fileID: 8300000, guid: 5ab8a754165a8d34dbf9344d6244293a, type: 3}
-  - {fileID: 8300000, guid: a19e1b6432a6a264abfa8105516ebc56, type: 3}
-  - {fileID: 8300000, guid: c59b3ca3157f8be48b8f1940a4fa6de7, type: 3}
-  - {fileID: 8300000, guid: 93baedf422ca9ec448f49df2cab35d8e, type: 3}
-  - {fileID: 8300000, guid: f8710954e240e834bb8b9dae091309ae, type: 3}
-  - {fileID: 8300000, guid: 97f95dc077d54304a840a1ef455120b2, type: 3}
-  - {fileID: 8300000, guid: 5c8897b800bbed44694139f3b2216836, type: 3}
-  - {fileID: 8300000, guid: 6583c7ff5f554c74c92ba39c9d74c296, type: 3}
-  barNum: 10
-  com: {fileID: 1615675907}
-  tolerence: 0.5
+  beats: 60
+  beatsperbar: 4
+  basenote: 4
+  piano: []
+  volin: []
 --- !u!82 &2049740106
 AudioSource:
   m_ObjectHideFlags: 0
