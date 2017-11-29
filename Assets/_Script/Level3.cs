@@ -5,11 +5,13 @@ using UnityEngine;
 public class Level3 : MonoBehaviour {
 
 
-    private float[] NOTES = new float[3] { 0.125f, 0.25f, 0.5f};
+    private float[] NOTES = new float[5] { 0.125f, 0.25f, 0.375f, 0.5f, 1f};
     private string PATTERNPATH = "Assets/pattern.txt";
     private string PITCHPATH = "Assets/pitch.txt";
-    public int nNotes = 4;
+    private TextAsset SongTime;
+    private TextAsset SongPitch;
 
+    public int nNotes = 4;
     public float unitNote = 0.25f;
     public int bpm = 60;
     public AudioClip[] piano;
@@ -28,10 +30,6 @@ public class Level3 : MonoBehaviour {
     private int iPlayer = -1;
     private int jPlayer = -1;
     private float noteStamp = 0f;
-
-
-
-
 
 
     // Use this for initialization
@@ -110,6 +108,7 @@ public class Level3 : MonoBehaviour {
         player.Play();
     }
 
+    //Generate a bar of the note times
     List<int> PatternGenerator(int nNotes, float unitNote) {
         float barSum = unitNote * nNotes;
         float sum = 0;
@@ -127,7 +126,8 @@ public class Level3 : MonoBehaviour {
         writer.Close();
         return intPattern;
     }
-
+    
+    //Generate a value of time based on defined tempo.
     int NoteGenerator(float barSum, float sum)
     {
         int indx = Random.Range(0, NOTES.Length);
@@ -143,6 +143,7 @@ public class Level3 : MonoBehaviour {
 
     }
 
+    // Generate the pitch based on the pattern file
     int[][] PitchGenerator(List<List<int>> timesheet)
     {
         int[][] pitch = new int[barNum][];
@@ -158,6 +159,7 @@ public class Level3 : MonoBehaviour {
 
     }
 
+    // computer play the notes
     void ComPlay(int pitch, float volumn)
     {
         com.Stop();
@@ -165,8 +167,10 @@ public class Level3 : MonoBehaviour {
         com.volume = volumn;
         com.Play();
     }
-    //float[] readpattern()
-    //{
+
+    List<List<int>> Readfile(TextAsset file)
+    {
+        string text = file.text;
         
-    //}
+    }
 }
