@@ -8,9 +8,9 @@ public class Level3 : MonoBehaviour {
     private float[] NOTES = new float[5] { 0.125f, 0.25f, 0.375f, 0.5f, 1f};
     private string PATTERNPATH = "Assets/pattern.txt";
     private string PITCHPATH = "Assets/pitch.txt";
-    private TextAsset SongTime;
-    private TextAsset SongPitch;
 
+    public TextAsset MelTime;
+    public TextAsset MelPitch;
     public int nNotes = 4;
     public float unitNote = 0.25f;
     public int bpm = 60;
@@ -34,30 +34,38 @@ public class Level3 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        System.IO.File.WriteAllText(PATTERNPATH, string.Empty);      
-        for (int i = 0; i <barNum; i++)
+        List<List<string>> Mel = Readfile(MelTime);
+        for (int i = 0; i < Mel.Count; i++)
         {
-            songTime.Add(PatternGenerator(nNotes, unitNote));
+            for (int j = 0; j < Mel[i].Count; j++)
+            {
+                print(Mel[i][j]);
+            }
         }
-        songPitch = PitchGenerator(songTime);
-        unitTime = 60 / bpm * nNotes;
-        StartCoroutine(Play());
+        //System.IO.File.WriteAllText(PATTERNPATH, string.Empty);      
+        //for (int i = 0; i <barNum; i++)
+        //{
+        //    songTime.Add(PatternGenerator(nNotes, unitNote));
+        //}
+        //songPitch = PitchGenerator(songTime);
+        //unitTime = 60 / bpm * nNotes;
+        //StartCoroutine(Play());
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(state == 1 & Input.GetKeyDown("f"))
-        {
-            float hitStamp = Time.realtimeSinceStartup;
-            if(hitStamp - noteStamp < tolerence)
-            {
-                PlayerPlay(iPlayer, jPlayer);
-            }
-            else
-            {
-                print("wrong" + (hitStamp-noteStamp).ToString());
-            }
-        }
+        //if(state == 1 & Input.GetKeyDown("f"))
+        //{
+        //    float hitStamp = Time.realtimeSinceStartup;
+        //    if(hitStamp - noteStamp < tolerence)
+        //    {
+        //        PlayerPlay(iPlayer, jPlayer);
+        //    }
+        //    else
+        //    {
+        //        print("wrong" + (hitStamp-noteStamp).ToString());
+        //    }
+        //}
 
 	}
 
@@ -168,9 +176,26 @@ public class Level3 : MonoBehaviour {
         com.Play();
     }
 
-    List<List<int>> Readfile(TextAsset file)
+    List<List<string>> Readfile(TextAsset file)
     {
         string text = file.text;
-        
+        string[] line = text.Split('\n');
+        List<List<string>> ReturnFile = new List<List<string>>();
+
+        foreach(string oneline in line)
+        {
+            string[] txtarr = oneline.Split(',');
+            if (!txtarr[0].Contains("//"))
+            {
+                List<string> txt = new List<string>();
+                foreach (string n in txtarr)
+                {
+                    txt.Add((n));
+                }
+                ReturnFile.Add(txt);
+            }
+        }
+        print(ReturnFile[0].Count);
+        return ReturnFile;
     }
 }
