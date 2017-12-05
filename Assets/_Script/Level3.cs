@@ -36,6 +36,8 @@ public class Level3 : MonoBehaviour {
     void Start () {
         songTime = Readfile(MelTime);
         songPitch = Readfile(MelPitch);
+        unitTime = 60 / bpm;
+
         //for(int i = 0; i < songPitch.Count; i++)
         //{
         //    for(int j = 0; j < songPitch[i].Count; j++)
@@ -77,12 +79,12 @@ public class Level3 : MonoBehaviour {
                 // indicate the starting point
                 if(j == songTime[progress].Count - 1)
                 {
-                    //print(ConvertPitch(songPitch[progress][j]));
+                    print(progress.ToString() + ", " + j.ToString());
                     ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
                 }
                 else
                 {
-                    //print(ConvertPitch(songPitch[progress][j]));
+                    print(progress.ToString() + ", " + j.ToString());
                     ComPlay(ConvertPitch(songPitch[progress][j]), 0.3f);
                 }
 
@@ -94,7 +96,6 @@ public class Level3 : MonoBehaviour {
             {
                 state = 1;
                 noteStamp = Time.realtimeSinceStartup;
-                print("wait");
                 iPlayer = progress;
                 jPlayer = j;
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
@@ -148,26 +149,11 @@ public class Level3 : MonoBehaviour {
 
     }
 
-    // Generate the pitch based on the pattern file
-    //int[][] PitchGenerator(List<List<int>> timesheet)
-    //{
-    //    int[][] pitch = new int[barNum][];
-    //    for(int i = 0; i < barNum; i++)
-    //    {
-    //        pitch[i] = new int[timesheet[i].Count];
-    //        for (int j = 0; j < timesheet[i].Count; j++)
-    //        {
-    //            pitch[i][j] = Random.Range(0, 8);
-    //        }
-    //    }
-    //    return pitch;
-
-    //}
-
     // computer play the notes
     void ComPlay(int pitch, float volumn)
     {
         com.Stop();
+        print(pitch);
         com.clip = piano[pitch];
         com.volume = volumn;
         com.Play();
@@ -201,25 +187,25 @@ public class Level3 : MonoBehaviour {
         switch (note[0])
         {
             case 'c':
-                index = 1 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 1 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'd':
-                index = 3 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 3 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'e':
-                index = 5 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 5 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'f':
-                index = 6 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 6 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'g':
-                index = 8 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 8 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'a':
-                index = 10 + 12 * int.Parse(note[1].ToString()) - 2;
+                index = 10 + 12 * (int.Parse(note[1].ToString()) - 2);
                 break;
             case 'b':
-                index = 1 + 12 * int.Parse(note[1].ToString()) - 1;
+                index = 12 * (int.Parse(note[1].ToString()) - 1);
                 break;
             default:
                 index = 0;
