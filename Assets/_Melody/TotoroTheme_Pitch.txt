@@ -4,7 +4,6 @@
 // c4s - sharp
 // c4b - flat
 // 000 - rest
-
 //1
 d5n,b4n,g4n,d5n,c5n
 c5n,a4n,000,000

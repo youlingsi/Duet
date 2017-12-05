@@ -36,14 +36,14 @@ public class Level3 : MonoBehaviour {
     void Start () {
         songTime = Readfile(MelTime);
         songPitch = Readfile(MelPitch);
-        for(int i = 0; i < songPitch.Count; i++)
-        {
-            for(int j = 0; j < songPitch[i].Count; j++)
-            {
-
-            }
-        }
-       // StartCoroutine(Play());
+        //for(int i = 0; i < songPitch.Count; i++)
+        //{
+        //    for(int j = 0; j < songPitch[i].Count; j++)
+        //    {
+        //        print(songPitch[i][j][0]);
+        //    }
+        //}
+        StartCoroutine(Play());
     }
 	
 	// Update is called once per frame
@@ -77,13 +77,13 @@ public class Level3 : MonoBehaviour {
                 // indicate the starting point
                 if(j == songTime[progress].Count - 1)
                 {
-                    print(ConvertPitch(songPitch[progress][j]));
-                    //ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
+                    //print(ConvertPitch(songPitch[progress][j]));
+                    ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
                 }
                 else
                 {
-                    print(ConvertPitch(songPitch[progress][j]));
-                    //ComPlay(ConvertPitch(songPitch[progress][j]), 0.3f);
+                    //print(ConvertPitch(songPitch[progress][j]));
+                    ComPlay(ConvertPitch(songPitch[progress][j]), 0.3f);
                 }
 
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
@@ -198,7 +198,6 @@ public class Level3 : MonoBehaviour {
     int ConvertPitch(string note)
     {
         int index = 0;
-        print(note);
         switch (note[0])
         {
             case 'c':
