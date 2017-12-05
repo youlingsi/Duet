@@ -7,7 +7,7 @@ public class Level3 : MonoBehaviour {
 
     private float[] NOTES = new float[5] { 0.125f, 0.25f, 0.375f, 0.5f, 1f};
     private string PATTERNPATH = "Assets/pattern.txt";
-    private string PITCHPATH = "Assets/pitch.txt";
+   // private string PITCHPATH = "Assets/pitch.txt";
 
     public TextAsset MelTime;
     public TextAsset MelPitch;
@@ -37,14 +37,6 @@ public class Level3 : MonoBehaviour {
         songTime = Readfile(MelTime);
         songPitch = Readfile(MelPitch);
         unitTime = 60 / bpm;
-
-        //for(int i = 0; i < songPitch.Count; i++)
-        //{
-        //    for(int j = 0; j < songPitch[i].Count; j++)
-        //    {
-        //        print(songPitch[i][j][0]);
-        //    }
-        //}
         StartCoroutine(Play());
     }
 	
@@ -75,7 +67,6 @@ public class Level3 : MonoBehaviour {
                 GetComponent<AudioSource>().Stop();
                 iPlayer = -1;
                 jPlayer = -1;
-                //print("i" + progress.ToString() + " " + "j" + j.ToString());
                 // indicate the starting point
                 if(j == songTime[progress].Count - 1)
                 {
@@ -85,10 +76,11 @@ public class Level3 : MonoBehaviour {
                 else
                 {
                     print(progress.ToString() + ", " + j.ToString());
-                    ComPlay(ConvertPitch(songPitch[progress][j]), 0.3f);
+                    ComPlay(ConvertPitch(songPitch[progress][j]), 0.1f);
                 }
 
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
+                com.Stop();
             }
             //yield return new WaitForSecondsRealtime(60/bpm);
 
@@ -99,8 +91,6 @@ public class Level3 : MonoBehaviour {
                 iPlayer = progress;
                 jPlayer = j;
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
-
-
             }
             progress++;
         }

@@ -468,7 +468,7 @@ MonoBehaviour:
   MelPitch: {fileID: 4900000, guid: 44a1618007b005843848f92d98948864, type: 3}
   nNotes: 4
   unitNote: 0.25
-  bpm: 60
+  bpm: 40
   piano:
   - {fileID: 8300000, guid: d5f05f0b1570d9d42a7a8d97edd81a2f, type: 3}
   - {fileID: 8300000, guid: 92a8630e450f57046a7fde97fb5ce838, type: 3}
@@ -595,7 +595,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c938546855707c148807946732c21748, type: 3}
   - {fileID: 8300000, guid: 264a74fa4e281b44baba42267f79c3cc, type: 3}
   - {fileID: 8300000, guid: e9db566395611c2409dac4b83d11e9e2, type: 3}
-  barNum: 10
   com: {fileID: 1615675907}
   tolerence: 0.5
 --- !u!82 &2049740106

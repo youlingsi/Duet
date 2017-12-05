@@ -13,7 +13,7 @@ public class Level2 : MonoBehaviour {
     private float tCom;
     private float tPly;
     private int indx;
-    private int[] RandNoteHis = new int[3] { 0, 0, 0 };
+   // private int[] RandNoteHis = new int[3] { 0, 0, 0 };
     private float[] lenth = new float[] { 0.25f, 0.5f, 1.0f, 2f };
     private int lenthIndex = 1;
     private float playStart = 0f;
