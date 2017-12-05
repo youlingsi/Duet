@@ -7,7 +7,11 @@ using SimpleJSON;
 public class Emoji_Test : MonoBehaviour
 {
 
-    private const string url = "http://grantwu.me:5000/galaga_emoji";
+    private const string url = "http://grantwu.me:5000/duet_emoji";
+    private bool seen = false;
+    private AudioSource com;
+    private string emoji = "";
+    private int count = 0;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(GetText());
@@ -20,6 +24,7 @@ public class Emoji_Test : MonoBehaviour
             WWW www = new WWW(url);
             yield return www;
 
+            seen = false;
             setNextType(www.text);
 
             yield return new WaitForSeconds(5.0f);
@@ -28,29 +33,31 @@ public class Emoji_Test : MonoBehaviour
     void setNextType(string text)
     {
         var N = JSON.Parse(text);
-        int pogChamp = N["PogChamp"];
-        int triHard = N["TriHard"];
-        int kappa = N["Kappa"];
-
-        if (kappa > triHard && kappa > pogChamp)
-        {
-            type = 1;
-            print("Current wave: Kappa");
-        }
-        if (triHard > kappa && triHard > pogChamp)
-        {
-            type = 2;
-            print("Current wave: TriHard");
-        }
-        if (pogChamp > kappa && pogChamp > triHard)
-        {
-            type = 3;
-            print("Current wave: PogChamp");
-        }
+        emoji = N["emoji"];
+        count = N["count"];
     }
 
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        if (!seen)
+        {
+            seen = true;
+            com.Stop();
+            com.volume = 1f; // Do something with count here
+            if (emoji == "PogChamp")
+            {
+                com.clip = null; // Fill this in
+                com.Play();
+            }
+            else if (emoji == "Kappa")
+            {
+                com.clip = null; // Fill this in
+                com.Play();
+            } // etc.
+            else
+            {
+            }
+        }
 	}
 }
