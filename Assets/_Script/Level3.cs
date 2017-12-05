@@ -16,15 +16,15 @@ public class Level3 : MonoBehaviour {
     public int bpm = 60;
     public AudioClip[] piano;
     public AudioClip[] voilin;
-    public int barNum = 10;
+//    public int barNum = 10;
     public AudioSource com;
     public float tolerence = 0.5f;
 
     private int state = 0; //0= computer play. 1= playerplay
 //    private float initialTime;
     private float unitTime = 0;
-    private List<List<int>> songTime = new List<List<int>>();
-    private int[][] songPitch;
+    private List<List<string>> songTime = new List<List<string>>();
+    private List<List<string>> songPitch = new List<List<string>>();
     private int progress = 0;
 //    private bool keyhit = false;
     private int iPlayer = -1;
@@ -34,44 +34,38 @@ public class Level3 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        List<List<string>> Mel = Readfile(MelTime);
-        for (int i = 0; i < Mel.Count; i++)
+        songTime = Readfile(MelTime);
+        songPitch = Readfile(MelPitch);
+        for(int i = 0; i < songPitch.Count; i++)
         {
-            for (int j = 0; j < Mel[i].Count; j++)
+            for(int j = 0; j < songPitch[i].Count; j++)
             {
-                print(Mel[i][j]);
+
             }
         }
-        //System.IO.File.WriteAllText(PATTERNPATH, string.Empty);      
-        //for (int i = 0; i <barNum; i++)
-        //{
-        //    songTime.Add(PatternGenerator(nNotes, unitNote));
-        //}
-        //songPitch = PitchGenerator(songTime);
-        //unitTime = 60 / bpm * nNotes;
-        //StartCoroutine(Play());
+       // StartCoroutine(Play());
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //if(state == 1 & Input.GetKeyDown("f"))
-        //{
-        //    float hitStamp = Time.realtimeSinceStartup;
-        //    if(hitStamp - noteStamp < tolerence)
-        //    {
-        //        PlayerPlay(iPlayer, jPlayer);
-        //    }
-        //    else
-        //    {
-        //        print("wrong" + (hitStamp-noteStamp).ToString());
-        //    }
-        //}
+        if (state == 1 & Input.GetKeyDown("f"))
+        {
+            float hitStamp = Time.realtimeSinceStartup;
+            if (hitStamp - noteStamp < tolerence)
+            {
+                PlayerPlay(iPlayer, jPlayer);
+            }
+            else
+            {
+                print("wrong" + (hitStamp - noteStamp).ToString());
+            }
+        }
 
-	}
+    }
 
     IEnumerator Play()
     {
-        while(progress < barNum)
+        while(progress < songTime.Count)
         {
             for(int j = 0; j < songTime[progress].Count; j++)
             {
@@ -79,17 +73,20 @@ public class Level3 : MonoBehaviour {
                 GetComponent<AudioSource>().Stop();
                 iPlayer = -1;
                 jPlayer = -1;
-                print("i" + progress.ToString() + " " + "j" + j.ToString());
+                //print("i" + progress.ToString() + " " + "j" + j.ToString());
+                // indicate the starting point
                 if(j == songTime[progress].Count - 1)
                 {
-                    ComPlay(songPitch[progress][j], 1f);
+                    print(ConvertPitch(songPitch[progress][j]));
+                    //ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
                 }
                 else
                 {
-                    ComPlay(songPitch[progress][j], 0.3f);
+                    print(ConvertPitch(songPitch[progress][j]));
+                    //ComPlay(ConvertPitch(songPitch[progress][j]), 0.3f);
                 }
 
-                yield return new WaitForSecondsRealtime(unitTime * NOTES[songTime[progress][j]]);
+                yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
             }
             //yield return new WaitForSecondsRealtime(60/bpm);
 
@@ -100,7 +97,7 @@ public class Level3 : MonoBehaviour {
                 print("wait");
                 iPlayer = progress;
                 jPlayer = j;
-                yield return new WaitForSecondsRealtime(unitTime * NOTES[songTime[progress][j]]);
+                yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
 
 
             }
@@ -112,7 +109,7 @@ public class Level3 : MonoBehaviour {
     {
         AudioSource player = GetComponent<AudioSource>();
         player.Stop();
-        player.clip = voilin[songPitch[i][j]];
+        player.clip = voilin[ConvertPitch(songPitch[i][j])];
         player.Play();
     }
 
@@ -152,20 +149,20 @@ public class Level3 : MonoBehaviour {
     }
 
     // Generate the pitch based on the pattern file
-    int[][] PitchGenerator(List<List<int>> timesheet)
-    {
-        int[][] pitch = new int[barNum][];
-        for(int i = 0; i < barNum; i++)
-        {
-            pitch[i] = new int[timesheet[i].Count];
-            for (int j = 0; j < timesheet[i].Count; j++)
-            {
-                pitch[i][j] = Random.Range(0, 8);
-            }
-        }
-        return pitch;
+    //int[][] PitchGenerator(List<List<int>> timesheet)
+    //{
+    //    int[][] pitch = new int[barNum][];
+    //    for(int i = 0; i < barNum; i++)
+    //    {
+    //        pitch[i] = new int[timesheet[i].Count];
+    //        for (int j = 0; j < timesheet[i].Count; j++)
+    //        {
+    //            pitch[i][j] = Random.Range(0, 8);
+    //        }
+    //    }
+    //    return pitch;
 
-    }
+    //}
 
     // computer play the notes
     void ComPlay(int pitch, float volumn)
@@ -195,7 +192,51 @@ public class Level3 : MonoBehaviour {
                 ReturnFile.Add(txt);
             }
         }
-        print(ReturnFile[0].Count);
         return ReturnFile;
+    }
+
+    int ConvertPitch(string note)
+    {
+        int index = 0;
+        print(note);
+        switch (note[0])
+        {
+            case 'c':
+                index = 1 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'd':
+                index = 3 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'e':
+                index = 5 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'f':
+                index = 6 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'g':
+                index = 8 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'a':
+                index = 10 + 12 * int.Parse(note[1].ToString()) - 2;
+                break;
+            case 'b':
+                index = 1 + 12 * int.Parse(note[1].ToString()) - 1;
+                break;
+            default:
+                index = 0;
+                break;
+        }        
+        if (note[2] == 's')
+        {
+            return index + 1;
+        }
+        else if (note[2] == 'b')
+        {
+            return index - 1;
+        }
+        else
+        {
+            return index;
+        }
     }
 }

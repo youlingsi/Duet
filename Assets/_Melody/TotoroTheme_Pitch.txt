@@ -1,0 +1,68 @@
+// [1/8,    1/4,     3/8,           1/2,  1]
+//  eighth, quarter, quarter+eigth, half, whole
+// c4n - normal note
+// c4s - sharp
+// c4b - flat
+// 000 - rest
+
+//1
+d5n,b4n,g4n,d5n,c5n
+c5n,a4n,000,000
+c5n,a4n,f4s,c5n,b4n
+b4n,g4n,000,000
+e5n,e5n,f5s,d5n,c5n
+d5n
+c5n,c5n,c5n
+c5n,a4n,g4n,d4n
+d4n,000
+//10
+000,g4n,f4s,g4n,d4n
+d4n
+000,g4n,f4s,g4n,b4n
+b4n
+c5n,b4n,a4n,g4n,c5n
+c5n,b4n,a4n,g4n
+g4n,a4n,a4n
+a4n
+//18
+000,g4n,f4s,g4n,d4n
+d4n
+000,g4n,f4s,g4n,d5n
+d5n
+c5n,c5n,c5n,b4n,a4n,c5n
+c5n,000,a4n,b4n,c5n
+b4n,b4n,b4n,a4n,g4n,b4n
+b4n
+//26
+e4n,f4s,g4n,a4n,e4n
+e4n,e4n,f4n,g4n,a4n,g4n,d5n
+d5n
+000,g4n,a4n,b4n,c5n
+d5n,b4n,g4n,d5n,c5n
+c5n,a4n,000,000
+c5n,a4n,f4s,c5n,b4n
+b4n,g4n,000,000
+//34
+d4s,g4n,c5n,d5s,d5n
+d5n,g4n,b4n
+c5n,b4n,c5n,b4n,c5n,b4n,g4n,a4n
+a4n,g4n,a4n,b4n,c5n
+d5n,b4n,g4n,d5n,c5n
+c5n,a5n,000,000
+c5n,a4n,f4s,c5n,b4n
+b4n,g4n,000,000
+e4n,e5n,d5n,c5n,b4n,c5n
+d5n,g4n,b4n
+c5n,b4n,g4n,c5n,b4n,g4n,e5n,d5n
+d5n
+000,d4n,d4n,c5n,b4n,a4n,b4n
+g4n
+g4n,000
+//47
+g4n
+g4n,000
+//51
+e4n,g4n,b4n
+a4n,g4n,f4n
+g4n
+g4n
