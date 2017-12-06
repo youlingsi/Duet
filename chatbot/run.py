@@ -38,7 +38,12 @@ def game_logic(message):
     global end_time, emoji_counter
     blocks = message.split()
 
-    if time.time() > end_time:
+    # Check word against list of emojis
+    word = blocks[0]
+    if word in EMOJIS:
+        emoji_counter[word] += 1
+
+    if time.time() > end_time + 10:
         # Takes top 3 most spammed emojis and converts into dictionary
         pair_in_list = emoji_counter.most_common(1)
         if pair_in_list:
@@ -50,12 +55,6 @@ def game_logic(message):
         # Reset state
         emoji_counter = Counter()
         end_time = time.time() + SAMPLE_INTERVAL
-    else:
-        # Currently spamming
-        # Check word against list of emojis
-        word = blocks[0]
-        if word in EMOJIS:
-            emoji_counter[word] += 1
 
 
 while True:
