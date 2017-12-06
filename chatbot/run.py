@@ -43,7 +43,7 @@ def game_logic(message):
     if word in EMOJIS:
         emoji_counter[word] += 1
 
-    if time.time() > end_time + 10:
+    if time.time() > end_time:
         # Takes top spammed emojis and converts into dictionary
         pair_in_list = emoji_counter.most_common(1)
         if pair_in_list:
