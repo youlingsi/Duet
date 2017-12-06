@@ -4,7 +4,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-emoji_dict = {}
+emoji_dict = {"emoji": "", "count": 0}
 last_time = time.time()
 
 
