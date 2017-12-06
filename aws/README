@@ -1,0 +1,10 @@
+How to run this server on AWS:
+
+1. Ensure that flask is installed.  You can do this simply with
+   `pip3 install flask`, or create a virtualenv:
+   ```
+   virtualenv -p python3 env
+   source env/bin/activate
+   pip3 install flask
+   ```
+2. Run the server: `python3 app.py`

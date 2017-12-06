@@ -32,4 +32,12 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# VS Code
 .vscode/settings.json
+
+# Python stuff
+*.csv
+private.py
+**/__pycache__/*
+env

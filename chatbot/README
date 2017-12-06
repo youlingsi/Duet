@@ -1,0 +1,7 @@
+To run the chatbot:
+
+1. Put in your Twitch OAuth token into private.py
+2. Fill out the correct values in settings.py for AWS_HOST, CHANNELLIST
+   You should set the AWS_ENDPOINT value to the auto-generated DNS host name or IP
+   address of the EC2 instance you are hosting this on.
+3. Run `python3 run.py`
