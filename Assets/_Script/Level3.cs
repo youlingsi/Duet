@@ -16,20 +16,21 @@ public class Level3 : MonoBehaviour {
     public int bpm = 60;
     public AudioClip[] piano;
     public AudioClip[] voilin;
-//    public int barNum = 10;
+    public AudioClip[] soundeffect;
     public AudioSource com;
-    public float tolerence = 0.5f;
+    public AudioSource effects;
+    public float tolerence = 0.2f;
 
-    private int state = 0; //0= computer play. 1= playerplay
-//    private float initialTime;
+    private int state = 0; //0= computer play. 1= playerplay 2 = played;
     private float unitTime = 0;
     private List<List<string>> songTime = new List<List<string>>();
     private List<List<string>> songPitch = new List<List<string>>();
     private int progress = 0;
-//    private bool keyhit = false;
     private int iPlayer = -1;
     private int jPlayer = -1;
     private float noteStamp = 0f;
+    private int correct;
+    private int wrong;
 
 
     // Use this for initialization
@@ -48,10 +49,15 @@ public class Level3 : MonoBehaviour {
             if (hitStamp - noteStamp < tolerence)
             {
                 PlayerPlay(iPlayer, jPlayer);
+                state = 2;
+                correct++;
             }
             else
             {
                 print("wrong" + (hitStamp - noteStamp).ToString());
+                EffectPlay(0);
+                state = 2;
+                wrong++;
             }
         }
 
@@ -68,21 +74,26 @@ public class Level3 : MonoBehaviour {
                 iPlayer = -1;
                 jPlayer = -1;
                 // indicate the starting point
-                if(j == songTime[progress].Count - 1)
-                {
-                    print(progress.ToString() + ", " + j.ToString());
-                    ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
-                }
-                else
-                {
-                    print(progress.ToString() + ", " + j.ToString());
-                    ComPlay(ConvertPitch(songPitch[progress][j]), 0.1f);
-                }
-
+                //if(j == songTime[progress].Count - 1)
+                //{
+                //    print(progress.ToString() + ", " + j.ToString());
+                //    ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
+                //}
+                //else
+                //{
+                //    print(progress.ToString() + ", " + j.ToString());
+                //    ComPlay(ConvertPitch(songPitch[progress][j]), 0.1f);
+                //}
+                ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
                 com.Stop();
+
             }
-            //yield return new WaitForSecondsRealtime(60/bpm);
+            yield return new WaitForSecondsRealtime(60/bpm);
+            EffectPlay(1);
+            correct = 0;
+            wrong = 0;
+            yield return new WaitForSecondsRealtime(0.2f);
 
             for (int j = 0; j < songTime[progress].Count; j++)
             {
@@ -91,7 +102,21 @@ public class Level3 : MonoBehaviour {
                 iPlayer = progress;
                 jPlayer = j;
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
+                if(state ==1)
+                {
+                    EffectPlay(0);
+                    wrong++;
+                }
             }
+            if(correct > wrong)
+            {
+                EffectPlay(2);
+            }
+            else
+            {
+                EffectPlay(3);
+            }
+            yield return new WaitForSecondsRealtime(60 / bpm);
             progress++;
         }
     }
@@ -213,5 +238,11 @@ public class Level3 : MonoBehaviour {
         {
             return index;
         }
+    }
+
+    void EffectPlay(int indx)
+    {
+        effects.clip = soundeffect[indx];
+        effects.Play();
     }
 }

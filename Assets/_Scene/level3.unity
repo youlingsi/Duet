@@ -112,6 +112,115 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &323357111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 323357113}
+  - component: {fileID: 323357112}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &323357112
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323357111}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &323357113
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323357111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45800084, y: -0.6877238, z: -0.023997009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615675906
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,15 +436,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8a90f6e2639b2484c9b46481d622cb2b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f39401f7423bbd8459fdbca060f2de14, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.49
+  m_Volume: 0.206
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 82
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -468,7 +577,7 @@ MonoBehaviour:
   MelPitch: {fileID: 4900000, guid: 44a1618007b005843848f92d98948864, type: 3}
   nNotes: 4
   unitNote: 0.25
-  bpm: 40
+  bpm: 36
   piano:
   - {fileID: 8300000, guid: d5f05f0b1570d9d42a7a8d97edd81a2f, type: 3}
   - {fileID: 8300000, guid: 92a8630e450f57046a7fde97fb5ce838, type: 3}
@@ -595,7 +704,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c938546855707c148807946732c21748, type: 3}
   - {fileID: 8300000, guid: 264a74fa4e281b44baba42267f79c3cc, type: 3}
   - {fileID: 8300000, guid: e9db566395611c2409dac4b83d11e9e2, type: 3}
+  soundeffect:
+  - {fileID: 8300000, guid: 45d7b7d84161d8047ad67e769c863840, type: 3}
+  - {fileID: 8300000, guid: 315b911b2b706ce4fa7c5bf43ea119db, type: 3}
+  - {fileID: 8300000, guid: d4b9d753d0770b04b868af1a379a6e52, type: 3}
+  - {fileID: 8300000, guid: 92ea5b07d20184c489573fdc0a867f83, type: 3}
   com: {fileID: 1615675907}
+  effects: {fileID: 323357112}
   tolerence: 0.5
 --- !u!82 &2049740106
 AudioSource:
