@@ -10,11 +10,11 @@ last_time = time.time()
 
 @app.route("/duet_emoji", methods=["GET"])
 def read():
-    global last_time
-    if time.time() - last_time > 10:
-        return json.dumps({"emoji": "", "count": 0})
-    else:
-        return json.dumps(emoji_dict)
+    # This isn't idempotent, which is kind of unholy, but whatever
+    global last_time, emoji_dict
+    temp = emoji_dict
+    emoji_dict = {"emoji": "", "count": 0}
+    return json.dumps(temp)
 
 
 @app.route("/duet_emoji", methods=["POST"])
