@@ -26,6 +26,7 @@ public class Emoji_Test : MonoBehaviour
 
             seen = false;
             setNextType(www.text);
+            // print(www.text);
 
             yield return new WaitForSeconds(5.0f);
         }
@@ -34,30 +35,32 @@ public class Emoji_Test : MonoBehaviour
     {
         var N = JSON.Parse(text);
         emoji = N["emoji"];
+        print(emoji);
         count = N["count"];
+        print(count);
     }
 
 	// Update is called once per frame
 	void Update ()
     {
-        if (!seen)
-        {
-            seen = true;
-            com.Stop();
-            com.volume = 1f; // Do something with count here
-            if (emoji == "PogChamp")
-            {
-                com.clip = null; // Fill this in
-                com.Play();
-            }
-            else if (emoji == "Kappa")
-            {
-                com.clip = null; // Fill this in
-                com.Play();
-            } // etc.
-            else
-            {
-            }
-        }
+        // if (!seen)
+        // {
+        //     seen = true;
+        //     com.Stop();
+        //     com.volume = 1f; // Do something with count here
+        //     if (emoji == "PogChamp")
+        //     {
+        //         com.clip = null; // Fill this in
+        //         com.Play();
+        //     }
+        //     else if (emoji == "Kappa")
+        //     {
+        //         com.clip = null; // Fill this in
+        //         com.Play();
+        //     } // etc.
+        //     else
+        //     {
+        //     }
+        // }
 	}
 }
