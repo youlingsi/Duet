@@ -25,7 +25,7 @@ EMOJIS = set(line.strip() for line in open('lol3.txt'))
 SAMPLE_INTERVAL = 10
 
 # Global variables for dictionary
-emoji_counter = None
+emoji_counter = Counter()
 end_time = time.time() + SAMPLE_INTERVAL
 
 
