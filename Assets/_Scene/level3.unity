@@ -401,9 +401,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   com: {fileID: 1061578546}
   clips:
-  - {fileID: 8300000, guid: 6b3b0db22b85ad44b8057b9940815a58, type: 3}
-  - {fileID: 8300000, guid: 157a969f91a14274fab46c3825697b92, type: 3}
-  - {fileID: 8300000, guid: 82d453148daed504daee4d567026216e, type: 3}
+  - {fileID: 8300000, guid: ad365c3fd2f914745b6d6b9cc1c3da82, type: 3}
+  - {fileID: 8300000, guid: 86c3233f0948a0146abdb75cea58fe34, type: 3}
+  - {fileID: 8300000, guid: 92ea5b07d20184c489573fdc0a867f83, type: 3}
 --- !u!4 &1104755858
 Transform:
   m_ObjectHideFlags: 0
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 45d7b7d84161d8047ad67e769c863840, type: 3}
   - {fileID: 8300000, guid: 315b911b2b706ce4fa7c5bf43ea119db, type: 3}
   - {fileID: 8300000, guid: d4b9d753d0770b04b868af1a379a6e52, type: 3}
-  - {fileID: 8300000, guid: 92ea5b07d20184c489573fdc0a867f83, type: 3}
+  - {fileID: 8300000, guid: 549a4dedc4552b34dabb45916e09d6fc, type: 3}
   com: {fileID: 1615675907}
   effects: {fileID: 323357112}
   tolerence: 0.5

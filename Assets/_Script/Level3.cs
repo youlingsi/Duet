@@ -70,7 +70,8 @@ public class Level3 : MonoBehaviour {
     {
         while(progress < songTime.Count)
         {
-            for(int j = 0; j < songTime[progress].Count; j++)
+            animecontrol.Reset();
+            for (int j = 0; j < songTime[progress].Count; j++)
             {
                 state = 0;
                 GetComponent<AudioSource>().Stop();
@@ -100,6 +101,7 @@ public class Level3 : MonoBehaviour {
 
             for (int j = 0; j < songTime[progress].Count; j++)
             {
+
                 state = 1;
                 noteStamp = Time.realtimeSinceStartup;
                 iPlayer = progress;
@@ -115,10 +117,13 @@ public class Level3 : MonoBehaviour {
             if(correct > wrong)
             {
                 EffectPlay(2);
+                animecontrol.Jump();
             }
             else
             {
                 EffectPlay(3);
+                animecontrol.Fall();
+                animecontrol.cloud.SetActive(false);
             }
             yield return new WaitForSecondsRealtime(60 / bpm);
             progress++;

@@ -23,8 +23,10 @@ public class Anime : MonoBehaviour {
 
     public void Reset()
     {
+        cloud.SetActive(true);
         anime.SetBool("Land", true);
         anime.SetBool("Fall", false);
+        this.transform.position = new Vector3(3f, 300f, 0);
         // reset the transform of the cloud and the character
     }
 
