@@ -12,7 +12,6 @@ public class Anime : MonoBehaviour {
         anime = this.GetComponent<Animator>();
         Collider2D coHuman = this.GetComponent<Collider2D>();
         anime.SetBool("Land", true);
-        anime.SetBool("Up", false);
         anime.SetBool("Fall", false);
 
     }
@@ -22,31 +21,38 @@ public class Anime : MonoBehaviour {
 		
 	}
 
-    void Reset()
+    public void Reset()
     {
         anime.SetBool("Land", true);
-        anime.SetBool("Up", false);
         anime.SetBool("Fall", false);
         // reset the transform of the cloud and the character
     }
 
-    void Jump()
+    public void Jump()
     {
         anime.SetBool("Land", false);
-        anime.SetBool("Up", false);
         anime.SetBool("Fall", false);
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
         
     }
 
-    void LandJudge()
+    public void LandJudge()
     {
         Collider2D co = this.GetComponent<Collider2D>();
         Collider2D cloudco = cloud.GetComponent<Collider2D>();
         if (co.IsTouching(cloudco)){
+            anime.SetBool("Land", true);
+        }
+        else
+        {
             anime.SetBool("Land", false);
         }
         
+    }
+
+    public void Fall()
+    {
+        anime.SetBool("Fall", true);
     }
 
 }

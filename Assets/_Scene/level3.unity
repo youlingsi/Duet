@@ -1005,6 +1005,7 @@ MonoBehaviour:
   com: {fileID: 1615675907}
   effects: {fileID: 323357112}
   tolerence: 0.5
+  animecontrol: {fileID: 1007543292}
 --- !u!82 &2049740106
 AudioSource:
   m_ObjectHideFlags: 0

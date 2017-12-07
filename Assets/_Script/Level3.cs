@@ -20,6 +20,7 @@ public class Level3 : MonoBehaviour {
     public AudioSource com;
     public AudioSource effects;
     public float tolerence = 0.2f;
+    public Anime animecontrol;
 
     private int state = 0; //0= computer play. 1= playerplay 2 = played;
     private float unitTime = 0;
@@ -50,12 +51,14 @@ public class Level3 : MonoBehaviour {
             {
                 PlayerPlay(iPlayer, jPlayer);
                 state = 2;
+                animecontrol.Jump();
                 correct++;
             }
             else
             {
                 print("wrong" + (hitStamp - noteStamp).ToString());
                 EffectPlay(0);
+                animecontrol.Fall();
                 state = 2;
                 wrong++;
             }
@@ -105,6 +108,7 @@ public class Level3 : MonoBehaviour {
                 if(state ==1)
                 {
                     EffectPlay(0);
+                    animecontrol.Fall();
                     wrong++;
                 }
             }
