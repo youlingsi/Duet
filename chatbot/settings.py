@@ -9,7 +9,7 @@ AWS_ENDPOINT = "grantwu.me"
 PORT = 6667
 
 # Bot's username
-IDENT = "twtwitchtest"
+IDENT = "whitemushie"
 
 # List of channels to look at
-CHANNELLIST = ["twtwitchtest", "cmuetc"]
+CHANNELLIST = ["youlingsi"]

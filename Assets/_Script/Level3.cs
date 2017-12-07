@@ -21,6 +21,7 @@ public class Level3 : MonoBehaviour {
     public AudioSource effects;
     public float tolerence = 0.2f;
     public Anime animecontrol;
+    public Anime comAnimeControl;
 
     private int state = 0; //0= computer play. 1= playerplay 2 = played;
     private float unitTime = 0;
@@ -51,14 +52,14 @@ public class Level3 : MonoBehaviour {
             {
                 PlayerPlay(iPlayer, jPlayer);
                 state = 2;
-                animecontrol.Jump();
+                animecontrol.Sing();
                 correct++;
             }
             else
             {
                 print("wrong" + (hitStamp - noteStamp).ToString());
                 EffectPlay(0);
-                animecontrol.Fall();
+                animecontrol.Fail();
                 state = 2;
                 wrong++;
             }
@@ -77,20 +78,10 @@ public class Level3 : MonoBehaviour {
                 GetComponent<AudioSource>().Stop();
                 iPlayer = -1;
                 jPlayer = -1;
-                // indicate the starting point
-                //if(j == songTime[progress].Count - 1)
-                //{
-                //    print(progress.ToString() + ", " + j.ToString());
-                //    ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
-                //}
-                //else
-                //{
-                //    print(progress.ToString() + ", " + j.ToString());
-                //    ComPlay(ConvertPitch(songPitch[progress][j]), 0.1f);
-                //}
                 ComPlay(ConvertPitch(songPitch[progress][j]), 1f);
                 yield return new WaitForSecondsRealtime(unitTime * NOTES[int.Parse(songTime[progress][j])]);
                 com.Stop();
+                comAnimeControl.Reset();
 
             }
             yield return new WaitForSecondsRealtime(60/bpm);
@@ -110,20 +101,19 @@ public class Level3 : MonoBehaviour {
                 if(state ==1)
                 {
                     EffectPlay(0);
-                    animecontrol.Fall();
+                    animecontrol.Fail();
                     wrong++;
                 }
             }
             if(correct > wrong)
             {
                 EffectPlay(2);
-                animecontrol.Jump();
+                animecontrol.Sing();
             }
             else
             {
                 EffectPlay(3);
-                animecontrol.Fall();
-                animecontrol.cloud.SetActive(false);
+                animecontrol.Fail();
             }
             yield return new WaitForSecondsRealtime(60 / bpm);
             progress++;
@@ -176,6 +166,7 @@ public class Level3 : MonoBehaviour {
     // computer play the notes
     void ComPlay(int pitch, float volumn)
     {
+        comAnimeControl.Sing();
         com.Stop();
         print(pitch);
         com.clip = piano[pitch];
