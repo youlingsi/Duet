@@ -34,15 +34,11 @@ public class Emoji_Test : MonoBehaviour
     }
     void setNextType(string text)
     {
-        try
-        {
-            var N = JSON.Parse(text);
-            emoji = N["emoji"];
-            print(emoji);
-            count = N["count"];
-            print(count);
-        }
-        catch { }
+        var N = JSON.Parse(text);
+        emoji = N["emoji"];
+        print(emoji);
+        count = N["count"];
+        print(count);
     }
 
 	// Update is called once per frame
