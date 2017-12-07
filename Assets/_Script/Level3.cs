@@ -6,7 +6,7 @@ public class Level3 : MonoBehaviour {
 
 
     private float[] NOTES = new float[5] { 0.125f, 0.25f, 0.375f, 0.5f, 1f};
-    private string PATTERNPATH = "Assets/pattern.txt";
+    //private string PATTERNPATH = "Assets/pattern.txt";
    // private string PITCHPATH = "Assets/pitch.txt";
 
     public TextAsset MelTime;
@@ -130,23 +130,23 @@ public class Level3 : MonoBehaviour {
     }
 
     //Generate a bar of the note times
-    List<int> PatternGenerator(int nNotes, float unitNote) {
-        float barSum = unitNote * nNotes;
-        float sum = 0;
-        List<string> pattern = new List<string>();
-        List<int> intPattern = new List<int>();
-        while (sum < barSum)
-        {
-            int noteIndx = NoteGenerator(barSum, sum);
-            intPattern.Add(noteIndx);
-            pattern.Add(noteIndx.ToString());
-            sum += NOTES[noteIndx];
-        }
-        System.IO.StreamWriter writer = new System.IO.StreamWriter(PATTERNPATH, true);
-        writer.WriteLine(string.Join(",", pattern.ToArray()));
-        writer.Close();
-        return intPattern;
-    }
+    //List<int> PatternGenerator(int nNotes, float unitNote) {
+    //    float barSum = unitNote * nNotes;
+    //    float sum = 0;
+    //    List<string> pattern = new List<string>();
+    //    List<int> intPattern = new List<int>();
+    //    while (sum < barSum)
+    //    {
+    //        int noteIndx = NoteGenerator(barSum, sum);
+    //        intPattern.Add(noteIndx);
+    //        pattern.Add(noteIndx.ToString());
+    //        sum += NOTES[noteIndx];
+    //    }
+    //    System.IO.StreamWriter writer = new System.IO.StreamWriter(PATTERNPATH, true);
+    //    writer.WriteLine(string.Join(",", pattern.ToArray()));
+    //    writer.Close();
+    //    return intPattern;
+    //}
     
     //Generate a value of time based on defined tempo.
     int NoteGenerator(float barSum, float sum)
