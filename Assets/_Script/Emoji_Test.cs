@@ -49,9 +49,7 @@ public class Emoji_Test : MonoBehaviour
             seen = true;
             com.Stop();
             com.volume = 1f; // Do something with count here
-            // if (emoji == "PogChamp")
-            // For testing purposes I swapped in TriHard
-            if (emoji == "TriHard")
+            if (emoji == "PogChamp")
             {
                 com.clip = clips[0]; // Fill this in
                 com.Play();
